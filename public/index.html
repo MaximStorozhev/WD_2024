@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<title>EduMentor</title>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <header>
+        <!-- navigation bar at the top -->
+        <div class="navbar">
+            <a href="#home" id="defaultOpen" class="brand" onclick="openPage('home', this, event)"><img
+                    src="img/logo.jpg" alt="Logo"></a>
+            <div id="hamburger" class="hamburger">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+
+            <ul id="menu" class="menu">
+                <li><a href="#about-us" class="tablink" onclick="openPage('about-us', this, event)">about us</a></li>
+                <li><a href="#tutor-info" class="tablink" onclick="openPage('tutor-info', this, event)">tutor info</a>
+                </li>
+                <li><a href="#student-info" class="tablink" onclick="openPage('student-info', this, event)">student
+                        info</a></li>
+                <li><a href="#sign_up" id="signupBtn">Sign Up </a></li>
+                <li><a href="#log_in" id="loginBtn">log in</a></li>
+            </ul>
+        </div>
+
+
+        <div id="sign_up" class="modal">
+            <form class="modal-content" onsubmit="handleSubmit(event)">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('sign_up').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
+                <div class="container">
+                    <h1>Student Sign Up</h1>
+                    <p>Please fill in this form to create an account.</p>
+
+                    <label for="psw"><b>Type of Sign In <br><br></b></label>
+                    <input type="radio" name="user-type" value="student" checked="true">Student<br>
+                    <input type="radio" name="user-type" value="tutor">Tutor<br>
+
+                    <label for="name"><b>Name</b></label>
+                    <input type="text" placeholder="Enter first and last name" name="name" id="name" required>
+
+                    <label for="email"><b>Email</b></label>
+                    <input type="text" placeholder="Enter Email" name="email" id="email" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+
+                    <label for="psw-repeat"><b>Repeat Password</b></label>
+                    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+
+                    <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('sign_up').style.display='none'"
+                            class="cancelbtn">Cancel</button>
+                        <button type="submit" class="signupbtn">Sign Up</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div id="log_in" class="modal">
+            <form class="modal-content animate" onsubmit="handleLogin(event)">
+                <div class="imgcontainer">
+                    <span onclick="document.getElementById('log_in').style.display='none'" class="close"
+                        title="Close Modal">&times;</span>
+                </div>
+                <div class="container">
+                    <h2>Login</h2>
+
+                    <label for="uname"><b>Full Name</b></label>
+                    <input type="text" placeholder="Enter first and last name" name="email" id="loginEmail" required>
+
+                    <label for="psw"><b>Password</b></label>
+                    <input type="password" placeholder="Enter Password" name="psw" id="loginPsw" required>
+
+                    <button type="submit">Login</button>
+                </div>
+
+                <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('log_in').style.display='none'"
+                        class="cancelbtn">Cancel</button>
+                </div>
+            </form>
+        </div>
+
+    </header>
+
+
+    <!-- home page -->
+    <div id="home" class="tabcontent">
+        <div class="top-banner" style="display: flex;">
+            <h1>Access Top Online Tutors and Customized Learning Resources on One Platform!</h1>
+            <img src="img/header-banner image.png" alt="EduMentor">
+        </div>
+
+        <div class="search">
+            <div class="filter-bar" id="home-search-bar">
+                <select name="subject" id="home-subject">
+                    <option value="">Select Subject</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="biology">Biology</option>
+                    <option value="business">Business</option>
+                    <option value="chemistry">Chemistry</option>
+                    <option value="computer science">Computer Science</option>
+                    <option value="english">English</option>
+                    <option value="ict">ICT</option>
+                    <option value="mathematics">Mathematics</option>
+                    <option value="physics">Physics</option>
+                    <option value="social studies">Social Studies</option>
+                </select>
+                <button type="button" class="searchB"
+                    onclick="openPage('tutor-search', this, event, true)">Search</button>
+            </div>
+        </div>
+
+        <div class="H-info">
+            <h2>Better Tutors, Better Grades</h2>
+            <div class="row">
+                <div class="card">
+                    <h4>For Students and Parents</h4>
+                    <p>Individual learning plans to support student improvement.</p>
+                    <a href="#sign_up" class="btn">Sign Up Now</a>
+                </div>
+                <div class="card">
+                    <h4>For Tutors</h4>
+                    <p>Join our platform to support students and improve their skills.</p>
+                    <a href="mailto:example@example.com" class="btn">Sign Up Now</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="H-info">
+            <h3>Start Today</h3>
+            <p>Explore our platform and discover the best tutors for your needs.<br>
+                Decide on a subscription plan that suits you best.<br>
+                ● 1 session = 100 AED<br>
+                ● 5 session = 450 AED<br>
+                ● 10 session = 850 AED</p>
+        </div>
+
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <h3>Best Tutoring App I’ve Tried! ⭐⭐⭐⭐⭐</h3>
+                <p>"As someone who struggles with self-motivation, this app has been fantastic.<br>
+                    The tutors are friendly, patient, and explain difficult concepts in a way that makes sense.<br>
+                    The lessons are interactive, and I can study at my own pace, which is a huge plus.<br>
+                    Definitely worth the investment if you want to improve your grades!"</p>
+                <p class="author">- Najat Al Sheari</p>
+            </div>
+
+            <div class="mySlides">
+                <h3>Comprehensive & Effective! ⭐⭐⭐⭐⭐</h5>
+                    <p>"I’ve been using this app for a few months now, and I can honestly say it’s been a
+                        game-changer!<br>
+                        The tutors are professional and knowledgeable, and the learning materials are well-structured.
+                        <br>
+                        I’ve seen real progress in my math skills, and the personalized approach makes all the
+                        difference.<br>
+                        Highly recommend it to anyone looking for quality tutoring!".
+                    </p>
+                    <p class="author">-Georgette Sayegh</p>
+            </div>
+
+            <div class="mySlides">
+
+                <h3>Personalized Learning Experience ⭐⭐⭐⭐⭐</h5>
+                    <p>"I’ve been really impressed with how personalized the tutoring sessions are.<br>
+                        My tutor takes the time to understand my learning style and tailors lessons to my needs.<br>
+                        I never feel rushed, and I can ask questions as many times as I need.<br>
+                        This app has truly made a difference in my education."
+                    </p>
+                    <p class="author">- Marwan Pablo</p>
+            </div>
+
+            <a class="prev" onclick="plusSlides(-1)">❮</a>
+            <a class="next" onclick="plusSlides(1)">❯</a>
+
+
+
+            <div class="dot-container">
+                <span class="dot" onclick="currentSlide(1)"></span>
+                <span class="dot" onclick="currentSlide(2)"></span>
+                <span class="dot" onclick="currentSlide(3)"></span>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <!-- about us page -->
+    <div id="about-us" class="tabcontent">
+        <div class="top-banner" style="display: flex; ">
+            <h1>About EduMentor<br>
+                We connect subject experts and learners
+                through our user-friendly platform.
+            </h1>
+            <img src="img/student info heder.png" alt="EduMentor">
+        </div>
+
+        <!-- Our Story Section -->
+        <div class="about-content">
+            <div class="about-section">
+                <h2>Our Story</h2>
+                <p>Founded in 2024, EduMentor emerged from a vision to make quality education accessible to everyone.
+                    We've grown from a small startup to a trusted educational platform, serving thousands of students
+                    and tutors worldwide.</p>
+
+                <!-- Mission and Vision -->
+                <div class="mission-grid">
+                    <div class="mission-item">
+                        <h3>Our Mission</h3>
+                        <p>To create an inclusive learning ecosystem where quality education is accessible to all,
+                            connecting passionate educators with motivated learners.</p>
+                    </div>
+                    <div class="mission-item">
+                        <h3>Our Vision</h3>
+                        <p>To become the world's most trusted platform for educational connections, empowering students
+                            to achieve their full potential.</p>
+                    </div>
+                </div>
+
+                <!-- Features Grid -->
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <h3>Verified Tutors</h3>
+                        <p>All tutors undergo thorough verification including background checks and qualification
+                            verification.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Personalized Matching</h3>
+                        <p>Advanced matching system considering learning style and academic goals.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Flexible Learning</h3>
+                        <p>Choose between online and in-person sessions at your convenience.</p>
+                    </div>
+                    <div class="feature-item">
+                        <h3>Quality Assured</h3>
+                        <p>Regular quality checks and student feedback systems ensure excellence.</p>
+                    </div>
+                </div>
+
+                <!-- Stats Section -->
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>5000+</h3>
+                        <p>Qualified Tutors</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>20000+</h3>
+                        <p>Happy Students</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>10</h3>
+                        <p>Subjects</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>95%</h3>
+                        <p>Satisfaction Rate</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Tutor Info Tab -->
+    <div id="tutor-info" class="tabcontent" style="display: none;">
+        <div class="top-banner">
+            <h1>Why Tutors Should Join EduMentor:</h1>
+            <p>Maximize your earning potential, connect with students globally, and manage your schedule with ease.</p>
+        </div>
+
+        <section class="info-section">
+            <!-- Benefit Items for Tutors -->
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-1')">
+                <h2>FREE Marketing Support</h2>
+                <p id="tutor-benefit-1" style="display: none;">
+                    Expand your reach to a wide student audience with EduMentor’s proactive marketing efforts, including
+                    social media campaigns, blog articles, and newsletters.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-2')">
+                <h2>User-Friendly Dashboard</h2>
+                <p id="tutor-benefit-2" style="display: none;">
+                    Easily manage your activities and stay in touch with students through a centralized dashboard.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-3')">
+                <h2>Increase Your Income Potential</h2>
+                <p id="tutor-benefit-3" style="display: none;">
+                    Attract more students and increase your bookings by leveraging EduMentor’s platform and tools.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-4')">
+                <h2>Flexible Work Schedule</h2>
+                <p id="tutor-benefit-4" style="display: none;">
+                    Set your own availability and manage your schedule according to your preferences.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-5')">
+                <h2>Global Reach</h2>
+                <p id="tutor-benefit-5" style="display: none;">
+                    Connect with students from around the world, expanding your teaching experience and cultural
+                    understanding.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-6')">
+                <h2>Professional Development</h2>
+                <p id="tutor-benefit-6" style="display: none;">
+                    Access resources and training to enhance your teaching skills and stay updated with the latest
+                    educational trends.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-7')">
+                <h2>Secure Payment System</h2>
+                <p id="tutor-benefit-7" style="display: none;">
+                    Receive payments reliably and on time, with transparent records of your earnings.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-8')">
+                <h2>Dedicated Support Team</h2>
+                <p id="tutor-benefit-8" style="display: none;">
+                    Get assistance whenever you need it from our dedicated support team.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('tutor-benefit-9')">
+                <h2>Build Your Reputation</h2>
+                <p id="tutor-benefit-9" style="display: none;">
+                    Receive ratings and reviews from students to build your professional reputation.
+                </p>
+            </div>
+
+
+            <!-- Steps to Join -->
+            <h3>How to Join:</h3>
+            <ol class="steps">
+                <li><strong>Contact Us:</strong> Email us at <a href="edumentor@gmail.com">example@email.com</a> to
+                    start the hiring process.
+                    <ul>
+                        <li>Send over your resume to verify your credentials.</li>
+                        <li>Have a quick interview.</li>
+                        <li>Once accepted,be assigned an account.</li>
+                    </ul>
+                </li>
+                <li><strong>Fill in Your information:</strong> Let students know about your expertise and teaching
+                    style.</li>
+                <li><strong>Start Teaching:</strong> Begin scheduling sessions with students according to your
+                    availability.</li>
+                <li><strong>Receive Payments:</strong> Payments are monthly for all completed sessions.</li>
+            </ol>
+        </section>
+    </div>
+
+
+
+
+    <!-- Student Info Tab -->
+    <div id="student-info" class="tabcontent">
+        <div class="top-banner">
+            <h1>Why Students Should Join EduMentor</h1>
+            <p>Access top tutors and premium resources, all tailored to enhance your learning experience.</p>
+        </div>
+
+        <section class="info-section">
+            <!-- Benefit Items for Students -->
+            <div class="benefit-item" onclick="toggleSection('student-benefit-1')">
+                <h2>Customized Online Tutoring Sessions</h2>
+                <p id="student-benefit-1" style="display: none;">
+                    Experience the convenience of learning from home with personalized online sessions that connect you
+                    to top tutors worldwide. Each one-on-one session is customized to meet your individual needs and
+                    learning preferences.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('student-benefit-2')">
+                <h2>Diverse Network of Experienced Tutors</h2>
+                <p id="student-benefit-2" style="display: none;">
+                    Access a wide range of highly qualified tutors from around the globe, available at times that suit
+                    your schedule and tailored to various learning styles.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('student-benefit-3')">
+                <h2>Premium Learning Resources</h2>
+                <p id="student-benefit-3" style="display: none;">
+                    Enjoy access to a wealth of high-quality learning materials designed by subject matter experts who
+                    understand different learning styles and academic levels.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('student-benefit-4')">
+                <h2>Intuitive User Dashboard</h2>
+                <p id="student-benefit-4" style="display: none;">
+                    Manage your learning journey effortlessly with a centralized dashboard to monitor your activities,
+                    bookings, messages, and progress.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('student-benefit-5')">
+                <h2>Flexible Scheduling</h2>
+                <p id="student-benefit-5" style="display: none;">
+                    Schedule sessions at times that suit you, making it easy to balance tutoring with other commitments.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('student-benefit-6')">
+                <h2>Affordable Subscription Plan</h2>
+                <p id="student-benefit-6" style="display: none;">
+                    A flexible and affordable subscription plan that fits your budget and learning goals.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('student-benefit-7')">
+                <h2>Interactive Learning Tools</h2>
+                <p id="student-benefit-7" style="display: none;">
+                    Utilize interactive tools and features that make learning engaging and effective.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('student-benefit-8')">
+                <h2>Progress Tracking</h2>
+                <p id="student-benefit-8" style="display: none;">
+                    Keep track of your academic progress with feedback from tutors.
+                </p>
+            </div>
+
+            <div class="benefit-item" onclick="toggleSection('student-benefit-9')">
+                <h2>Community Support</h2>
+                <p id="student-benefit-9" style="display: none;">
+                    Join a community of learners and participate in forums and study groups to enhance your learning
+                    experience.
+                </p>
+            </div>
+
+            <!-- Steps to Get Started -->
+            <h3>How to Get Started:</h3>
+            <ol class="steps">
+                <li><strong>Create an Account:</strong> Register quickly to join EduMentor.</li>
+                <li><strong>Search for a Tutor:</strong> Find the perfect tutor for your needs.</li>
+                <li><strong>Decide on a subscription plan:<br></strong> ● 1 session = 100 AED<br> ● 5 session = 450
+                    AED<br> ● 10 session = 850 AED</li>
+                <li><strong>Select you payment method:</strong> Select your payment method.</li>
+                <li><strong>Contact your tutor:</strong> Start to plan lessons</li>
+                <li><strong>Begin Lessons:</strong> Start personalized sessions with expert guidance.</li>
+                <li><strong>Make payments:</strong> Submit payment at the end of each month for all completed sessions.
+                </li>
+            </ol>
+        </section>
+    </div>
+
+
+
+
+    <div id="tutor-search" class="searchPage">
+        <div class="filter-bar" id="tutor-search-bar">
+            <select name="subject" id="tutor-subject">
+                <option value="">Select Subject</option>
+                <option value="arabic">Arabic</option>
+                <option value="biology">Biology</option>
+                <option value="business">Business</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="computer science">Computer Science</option>
+                <option value="english">English</option>
+                <option value="ict">ICT</option>
+                <option value="mathematics">Mathematics</option>
+                <option value="physics">Physics</option>
+                <option value="social studies">Social Studies</option>
+            </select>
+            <button type="button" class="searchB" onclick="openSearchPage(false)">Filter</button>
+        </div>
+
+        <div id="profileGrid" class="tutors-grid">
+            <div class="tutor-card" onclick="fetchTutorProfile('Alice Johnson')">
+                <div class="profile-picture"></div>
+                <div class="tutor-name">Alice Johnson</div>
+                <div class="little-bio">I am a passionate Scholar of Mathematics with over 8 years experience in this
+                    field.</div>
+                <div class="details">
+                    <p>Mathematics<br> Physics</p>
+                </div>
+            </div>
+
+            <div class="tutor-card" onclick="fetchTutorProfile('Ahmed Saif')">
+                <div class="profile-picture"></div>
+                <div class="tutor-name">Ahmed Saif</div>
+                <div class="little-bio">Computer Science and ICT teacher with 10 years of experience</div>
+                <div class="details">
+                    <p>Computer Science <br>ICT </p>
+                </div>
+            </div>
+
+            <div class="tutor-card" onclick="fetchTutorProfile('Cathy Brown')">
+                <div class="profile-picture"></div>
+                <div class="tutor-name">Cathy Brown</div>
+                <div class="little-bio">English literature specialist with over 13 years experience in the field</div>
+                <div class="details">
+                    <p>English</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- Modal for Detailed Profile -->
+    <div id="tutorModal" class="tutor-modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+
+            <div class="profile-header">
+                <div class="profile-picture-large"></div>
+                <div>
+                    <h2 id="tutorName">Tutor Name</h2>
+                </div>
+            </div>
+            <p id="tutorBio">Bio: </p>
+            <p id="tutorCurriculum">Subjects: </p>
+            <p id="tutorPhone">Phone: </p>
+            <p id="tutorEmail">Email: </p>
+
+            <div class="resume">
+                <h3>Resume</h3>
+                <p><strong>Diploma:</strong></p>
+                <p><strong>Work Experience:</strong></p>
+            </div>
+
+            <div class="reviews">
+                <h3>Reviews</h3>
+                <p>No reviews yet.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 EduMentor. All rights reserved.</p>
+    </footer>
+    <script src="scripts/index.js"></script>
+</body>
+
+</html>

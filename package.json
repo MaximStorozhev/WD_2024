@@ -1,0 +1,24 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "DEBUG=api* node .",
+    "dev": "DEBUG=* nodemon ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "debug": "^4.3.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.1",
+    "express-mysql-session": "^3.0.3",
+    "express-session": "^1.18.1",
+    "hbs": "^4.2.0",
+    "mysql2": "^3.11.4",
+    "nodemon": "^3.1.7"
+  }
+}

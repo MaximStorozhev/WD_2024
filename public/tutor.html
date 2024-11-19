@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tutor Dashboard</title>
-    <link rel="stylesheet" href="EduMentor totur signed-in css.css">
+    <link rel="stylesheet" href="styles/tutor.css">
 </head>
-<body>
+
+<body onload="onLoad()">
     <!-- Sidebar -->
     <div class="sidebar">
-        <a href="#dashbord" onclick="openPage('dashboard',this, event)"><img src="logo.jpg" alt="Icon"></a>
+        <a href="#dashbord" onclick="openPage('dashboard',this, event)"><img src="img/logy.jpg" alt="Icon"></a>
         <a href="#account" class="menu-item" onclick="openPage('account', this, event)">Account</a>
         <a href="#dashbord" class="menu-item" onclick="openPage('dashboard', this, event)">Dashboard</a>
-        <a href="EduMentor 1.html" class="menu-item">Log out</a>
+        <a class="menu-item" onclick="logout()">Log out</a>
     </div>
 
     <!-- Main Content -->
@@ -21,19 +23,23 @@
             <h2>Account Information</h2>
             <div class="field">
                 <strong>Name:</strong>
-                <p><%= account.name %></p>
+                <p id="user-name"></p>
+            </div>
+            <div class="field">
+                <strong>Email:</strong>
+                <p id="user-email"></p>
+            </div>
+            <div class="field">
+                <strong>Type:</strong>
+                <p id="user-type"></p>
             </div>
             <div class="field">
                 <strong>Subjects:</strong>
-                <ul>
-                    <% account.subjects.forEach(function(subject) { %>
-                    <li><%= subject %></li>
-                    <% }) %>
-                </ul>
+                <p>Default</p>
             </div>
             <div class="field">
                 <strong>Subscription Plan:</strong>
-                <p><%= account.subscriptionPlan %></p>
+                <p>Default</p>
             </div>
         </div>
 
@@ -44,7 +50,7 @@
                     <h2>Arabic</h2>
                     <p>Academic Year 2024-2025</p>
                 </div>
-                
+
                 <div class="subject green" onclick="showPayments('Biology')">
                     <h2>Biology</h2>
                     <p>Academic Year 2024-2025</p>
@@ -54,7 +60,7 @@
                     <h2>Business</h2>
                     <p>Academic Year 2024-2025</p>
                 </div>
-                
+
                 <div class="subject yellow" onclick="showPayments('Chemistry')">
                     <h2>Chemistry</h2>
                     <p>Academic Year 2024-2025</p>
@@ -79,12 +85,12 @@
                     <h2>Math</h2>
                     <p>Academic Year 2024-2025</p>
                 </div>
-                
+
                 <div class="subject brown" onclick="showPayments('Physics')">
                     <h2>Physics</h2>
                     <p>Academic Year 2024-2025</p>
                 </div>
-                
+
                 <div class="subject pink" onclick="showPayments('Social Studies')">
                     <h2>Social Studies</h2>
                     <p>Academic Year 2024-2025</p>
@@ -105,12 +111,14 @@
                 </tbody>
             </table>
             <p>Total for the month: <span id="total-amount">1700 AED</span></p>
-            <a href="#dashboard" id="Back_Dash" onclick="openPage('dashboard', this, event); hideMaterials();">Back to Dashboard</a>
+            <a href="#dashboard" id="Back_Dash" onclick="openPage('dashboard', this, event); hideMaterials();">Back to
+                Dashboard</a>
         </div>
-   
-      
-    
 
-<script src="EduMentor tutor signed-in JS.js"></script>
+
+
+
+        <script src="scripts/tutor.js"></script>
 </body>
+
 </html>

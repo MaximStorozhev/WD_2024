@@ -1,9 +1,33 @@
+async function onLoad() {
+    await fetch("/api/auth/me", {
+        method: "GET",
+    })
+        .then((response) => response.json())
+        .then((result) => {
+            document.getElementById('user-name').innerHTML = result.name
+            document.getElementById('user-email').innerHTML = result.email
+            document.getElementById('user-type').innerHTML = result.type
+        })
+        .catch((error) => alert(error));
+}
+
 // Function to open a specific page/section
 function openPage(pageId, element, event) {
     event.preventDefault();
     const sections = document.querySelectorAll('.section');
     sections.forEach(section => section.style.display = 'none');
     document.getElementById(pageId).style.display = 'block';
+}
+
+async function logout() {
+    await fetch("/api/auth/logout", {
+        method: "GET",
+    })
+        .then((response) => response.json())
+        .then(() => {
+            return location.replace('/index.html')
+        })
+        .catch((error) => alert(error));
 }
 
 // Function to show payments based on the selected subject
@@ -40,7 +64,7 @@ async function showPayments(subject) {
 function displayPayments(subject, payments) {
     // Hide the dashboard
     document.getElementById('dashboard').style.display = 'none';
-    
+
     // Show the payments section
     const paymentsSection = document.getElementById('payments'); // Make sure this ID matches your HTML
     paymentsSection.style.display = 'block';
@@ -69,7 +93,7 @@ function displayPayments(subject, payments) {
 
 // Example of how to handle subject clicks
 document.querySelectorAll('.subject').forEach(subjectElement => {
-    subjectElement.addEventListener('click', function() {
+    subjectElement.addEventListener('click', function () {
         const subjectName = this.querySelector('h2').textContent; // Get the subject name
         showPayments(subjectName); // Call the function to show payments
     });

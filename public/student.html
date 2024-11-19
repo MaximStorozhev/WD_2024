@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard</title>
+    <link rel="stylesheet" href="styles/student.css" />
+</head>
+
+<body onload="onLoad()">
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <a href="#dashbord" onclick="openPage('dashboard',this, event)"><img src="img/logy.jpg" alt="Icon" /></a>
+        <a href="#account" class="menu-item" onclick="openPage('account', this, event)">Account</a>
+        <a href="#dashbord" class="menu-item" onclick="openPage('dashboard', this, event)">Dashboard</a>
+        <a href="#payment" class="menu-item" onclick="openPage('payment', this, event)">Payment</a>
+        <a class="menu-item" onclick="logout()">Log out</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        <div id="account" class="section">
+            <h2>Account Information</h2>
+            <div class="field">
+                <strong>Name:</strong>
+                <p id="user-name"></p>
+            </div>
+            <div class="field">
+                <strong>Email:</strong>
+                <p id="user-email"></p>
+            </div>
+            <div class="field">
+                <strong>Type:</strong>
+                <p id="user-type"></p>
+            </div>
+            <div class="field">
+                <strong>Subjects:</strong>
+                <p>Default</p>
+            </div>
+            <div class="field">
+                <strong>Subscription Plan:</strong>
+                <p>Default</p>
+            </div>
+        </div>
+
+        <div id="dashboard" class="section">
+            <h1>Dashboard</h1>
+            <div class="subjects">
+                <div class="subject red" onclick="showMaterials('Arabic')">
+                    <h2>Arabic</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject green" onclick="showMaterials('Biology')">
+                    <h2>Biology</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject orange" onclick="showMaterials('Business')">
+                    <h2>Business</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject yellow" onclick="showMaterials('Chemistry')">
+                    <h2>Chemistry</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject black" onclick="showMaterials('Computer science')">
+                    <h2>Computer science</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject purple" onclick="showMaterials('English')">
+                    <h2>English</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject gray" onclick="showMaterials('ICT')">
+                    <h2>ICT</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject blue" onclick="showMaterials('Math')">
+                    <h2>Math</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject brown" onclick="showMaterials('Physics')">
+                    <h2>Physics</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+
+                <div class="subject pink" onclick="showMaterials('Social Studies')">
+                    <h2>Social Studies</h2>
+                    <p>Academic Year 2024-2025</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="payment" class="section">
+            <div class="card-management">
+                <h2>Settings</h2>
+                <p>Payment</p>
+
+                <div class="saved-cards">
+                    <h3>Saved cards:</h3>
+                    <div id="savedCardsContainer"></div>
+                </div>
+
+                <div class="amount-due">
+                    <h3>Total Due:</h3>
+                    <p id="amountDue">$100.00</p>
+                </div>
+
+                <button id="payButton" class="pay-button" disabled>Pay Now</button>
+                <button id="openAddCardModal" class="add-card-button">
+                    Add New Card
+                </button>
+            </div>
+
+            <!-- Add Card Modal -->
+            <div id="addCardModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Add New Card</h3>
+                    <input type="text" id="cardName" placeholder="Cardholder's Name" required />
+                    <input type="text" id="cardNumber" placeholder="Card Number" required maxlength="19" />
+                    <input type="text" id="cardExpiry" placeholder="MM/YY" required maxlength="5" />
+                    <input type="text" id="cardCvv" placeholder="CVV" required maxlength="3" />
+                    <button id="saveCardButton" class="add-card-button">
+                        Save Card
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="logout" class="section">
+            <h2>Log Out Section</h2>
+            <p>This is where you can log out.</p>
+        </div>
+
+        <div class="materials" id="materials" style="display: none">
+            <div class="header">
+                <div class="subject-info">
+                    <div class="subject-name">
+                        Subject: <span id="subjectName"></span>
+                    </div>
+                    <div class="tutor">Tutor Name: John Doe</div>
+                </div>
+                <div>Contact info: Email | Number</div>
+            </div>
+            <h2>Materials for <span id="subjectName"></span></h2>
+            <ul id="materialList">
+                <!-- Material list will be populated dynamically -->
+            </ul>
+            <a href="#dashboard" id="Back_Dash" onclick="openPage('dashboard', this, event); hideMaterials();">Back to
+                Dashboard</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>Contact info</footer>
+
+    <script src="scripts/student.js"></script>
+</body>
+
+</html>

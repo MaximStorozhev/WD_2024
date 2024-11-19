@@ -1,0 +1,517 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #f4f4f9;
+}
+
+body {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 80px;
+    height: 100vh;
+    background-color: #123344;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+}
+
+.sidebar img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.sidebar .menu-item {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 12px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.sidebar .menu-item:hover {
+    background-color: #1f4d7b;
+}
+
+/* Main Content */
+.content {
+    padding: 20px;
+    overflow-y: auto;
+}
+
+/* Dashboard Section - Updated Subject Card Styling */
+.subjects {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.subject {
+    width: 150px;
+    height: 150px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.subject:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Unique Styling for Each Subject */
+.subject.red {
+    background: linear-gradient(135deg, #d9534f, #b22222);
+}
+
+.subject.green {
+    background: linear-gradient(135deg, #5cb85c, #3d8b3d);
+}
+
+.subject.orange {
+    background: linear-gradient(135deg, #f0ad4e, #e08b26);
+}
+
+.subject.yellow {
+    background: linear-gradient(135deg, #ffd700, #ffcc00);
+    color: #333;
+    text-shadow: none;
+}
+
+.subject.black {
+    background: linear-gradient(135deg, #333, #000);
+}
+
+.subject.purple {
+    background: linear-gradient(135deg, #9370db, #6a5acd);
+}
+
+.subject.gray {
+    background: linear-gradient(135deg, #6c757d, #5a6268);
+}
+
+.subject.blue {
+    background: linear-gradient(135deg, #5bc0de, #1e90ff);
+}
+
+.subject.brown {
+    background: linear-gradient(135deg, #8b4513, #a0522d);
+}
+
+.subject.pink {
+    background: linear-gradient(135deg, #ff69b4, #ff1493);
+}
+
+/* Additional Hover Effects */
+.subject.red:hover {
+    background: linear-gradient(135deg, #b22222, #d9534f);
+}
+
+.subject.green:hover {
+    background: linear-gradient(135deg, #3d8b3d, #5cb85c);
+}
+
+.subject.orange:hover {
+    background: linear-gradient(135deg, #e08b26, #f0ad4e);
+}
+
+.subject.yellow:hover {
+    background: linear-gradient(135deg, #ffcc00, #ffd700);
+}
+
+.subject.black:hover {
+    background: linear-gradient(135deg, #000, #333);
+}
+
+.subject.purple:hover {
+    background: linear-gradient(135deg, #6a5acd, #9370db);
+}
+
+.subject.gray:hover {
+    background: linear-gradient(135deg, #5a6268, #6c757d);
+}
+
+.subject.blue:hover {
+    background: linear-gradient(135deg, #1e90ff, #5bc0de);
+}
+
+.subject.brown:hover {
+    background: linear-gradient(135deg, #a0522d, #8b4513);
+}
+
+.subject.pink:hover {
+    background: linear-gradient(135deg, #ff1493, #ff69b4);
+}
+
+/* General Section Styling for Other Pages */
+.section {
+    display: none;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.section.active {
+    display: block;
+}
+
+/* Header */
+.header {
+    background-color: #f0f0f0;
+    padding: 15px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Account Page */
+#account h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+.field strong {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.field p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Materials Section Styling */
+.materials {
+    width: 90%;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.materials .header {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+    text-align: left;
+}
+
+/* Unique Header Styles for Each Subject */
+.materials .header.arabic {
+    background: linear-gradient(135deg, #8b0000, #5a0000);
+}
+
+.materials .header.biology {
+    background: linear-gradient(135deg, #006400, #004d00);
+}
+
+.materials .header.business {
+    background: linear-gradient(135deg, #b9770e, #8c590b);
+}
+
+.materials .header.chemistry {
+    background: linear-gradient(135deg, #b59b00, #7e7300);
+    color: #333;
+}
+
+.materials .header.computer-science {
+    background: linear-gradient(135deg, #2b2b2b, #000);
+}
+
+.materials .header.english {
+    background: linear-gradient(135deg, #5a3d9a, #3b2866);
+}
+
+.materials .header.ict {
+    background: linear-gradient(135deg, #5a5e63, #3b3e42);
+}
+
+.materials .header.math {
+    background: linear-gradient(135deg, #1d82b6, #145d85);
+}
+
+.materials .header.physics {
+    background: linear-gradient(135deg, #5a2b18, #3d1e10);
+}
+
+.materials .header.social-studies {
+    background: linear-gradient(135deg, #b24476, #7d3153);
+}
+
+/* Text Style in the Header */
+.materials .subject-info {
+    font-size: 18px;
+    color: #fff;
+}
+
+.materials .subject-info .subject-name,
+.materials .subject-info .tutor,
+.materials .subject-info .contact-info {
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Content Section */
+.materials h2 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.materials ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.materials li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.materials a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.materials a:hover {
+    color: #0056b3;
+}
+
+/* Back Button Styling */
+#Back_Dash {
+    display: inline-flex;
+    align-items: center;
+    color: #333;
+    background-color: #e0e0e0;
+    font-weight: bold;
+    padding: 8px 16px;
+    border-radius: 5px;
+    margin-top: 20px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#Back_Dash::before {
+    content: "←";
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+#Back_Dash:hover {
+    background-color: #c0c0c0;
+    color: #000;
+}
+
+
+/* Hover Effects for Material Links */
+.materials li:hover {
+    background-color: #f0f0f5;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+
+
+/* Payment Section - Centered and Styled */
+.payment {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Center the payment box vertically */
+}
+
+.card-management {
+    width: 350px;
+    background-color: #333;
+    border-radius: 15px;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-management h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.saved-cards h3, .amount-due h3 {
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.saved-cards {
+    text-align: left;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: #555;
+    border-radius: 5px;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.card input[type="radio"] {
+    margin-right: 10px;
+}
+
+.amount-due p {
+    font-size: 18px;
+    font-weight: bold;
+    color: #eee;
+}
+
+.pay-button, .add-card-button {
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s;
+}
+
+.pay-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+}
+
+.pay-button:hover:not(:disabled), .add-card-button:hover {
+    background-color: #218838;
+}
+
+.add-card-button {
+    background-color: #007bff;
+    margin-top: 15px;
+}
+
+.add-card-button:hover {
+    background-color: #0069d9;
+}
+
+/* Modal Styling for Adding Cards */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 60px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #444;
+    color: #fff;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #fff;
+}
+
+.modal input {
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+    font-size: 14px;
+}
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 60px; /* Narrower sidebar on smaller screens */
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .card-management {
+        width: 90%; /* Full width on small screens */
+        margin: 0 10px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
+}
